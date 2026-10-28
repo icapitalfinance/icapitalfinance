@@ -1,0 +1,6 @@
+recovered/
+tools/
+.claude/
+EMAIL-FIX.md
+.DS_Store
+__pycache__/

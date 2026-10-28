@@ -1,0 +1,76 @@
+<!--{"out": "contact-us/index.html", "path": "/contact-us/", "nav": "contact",
+"title": "Contact Us – iCapital Finance",
+"og_title": "Contact iCapital Finance",
+"description": "Talk to a loan expert at iCapital Finance. Call 1300 833 616, email info@icapitalfinance.com.au, or visit us at 21-23 Aristoc Rd, Glen Waverley VIC 3150."}-->
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb"><li><a href="{{root}}">Home</a></li><li aria-current="page">Contact Us</li></ol>
+    <h1>Contact Us</h1>
+    <p>We are ready to assist you with your mortgage needs. One call is all it takes to get the right mortgage solution.</p>
+  </div>
+</section>
+
+<section class="section section--soft" aria-label="Contact details and enquiry form">
+  <div class="container">
+    <div class="contact">
+      <div class="form-card reveal">
+        <span class="eyebrow">Send us a message</span>
+        <h2>I want to talk to a loan expert</h2>
+        <p>Tell us a little about what you need and we will get back to you.</p>
+        <!-- Formspree endpoint: replace YOUR_FORM_ID with the ID from formspree.io (see DEPLOY.md). Until then the form opens the visitor's email app instead. -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-contact-form novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-enquiry">I'm interested in</label>
+              <select id="f-enquiry" name="enquiry">
+                <option>Residential loans</option>
+                <option>Refinancing</option>
+                <option>Business &amp; commercial loans</option>
+                <option>Equipment finance</option>
+                <option>Annual loan review</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field field--full">
+              <label for="f-message">How can we help? <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="f-message" name="message" required></textarea>
+            </div>
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_subject" value="New enquiry from icapitalfinance.com.au">
+          </div>
+          <p class="form-note">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required. We only use your details to respond to your enquiry.</p>
+          <button class="btn btn--primary" type="submit" style="margin-top:18px">Send Message <svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-arrow"/></svg></button>
+          <div class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+        </form>
+      </div>
+
+      <aside class="info-card reveal" data-delay="150" aria-labelledby="touch-title">
+        <h2 id="touch-title">Get In Touch</h2>
+        <ul class="info-list">
+          <li><svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-phone"/></svg><div><strong>Phone</strong><a href="tel:1300833616">1300 833 616</a></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-mail"/></svg><div><strong>Email</strong><a href="mailto:info@icapitalfinance.com.au">info@icapitalfinance.com.au</a></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-location"/></svg><div><strong>Office</strong>21-23 Aristoc Rd, Glen Waverley, VIC 3150, Australia</div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-clock"/></svg><div><strong>Our Hours</strong>Mon - Fri: 08:30 AM to 05:30 PM</div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-linkedin"/></svg><div><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/wendyleeicapitalfinance" rel="noopener" target="_blank">wendyleeicapitalfinance<span class="visually-hidden"> (opens in a new tab)</span></a></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="{{root}}assets/img/icons.svg#i-globe"/></svg><div><strong>Languages</strong>English, Mandarin and Cantonese</div></li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="map reveal">
+      <iframe title="Map showing 21-23 Aristoc Rd, Glen Waverley VIC 3150" src="https://maps.google.com/maps?q=21-23%20Aristoc%20Rd%2C%20Glen%20Waverley%20VIC%203150&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
