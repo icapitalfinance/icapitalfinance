@@ -60,8 +60,17 @@ def render(template, values):
     return re.sub(r"\{\{(\w+)\}\}", lambda m: values.get(m.group(1), m.group(0)), template)
 
 
+def icon_sprite():
+    """The icon sprite as a hidden inline <svg>, so icons work without a cross-file <use>
+    (browsers block those for pages opened from disk)."""
+    svg = (OUT / "assets/img/icons.svg").read_text(encoding="utf-8").strip()
+    return re.sub(r"<svg[^>]*>", '<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" '
+                  'style="position:absolute" aria-hidden="true" focusable="false">', svg, count=1)
+
+
 def build():
     layout = (SRC / "layout.html").read_text(encoding="utf-8")
+    layout = layout.replace('<a class="skip-link"', icon_sprite() + '\n<a class="skip-link"', 1)
     partials = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}
     version = asset_version()
     pages = []
@@ -91,7 +100,7 @@ def build():
         for key in ("home", "about", "services", "contact"):
             values["cur_" + key] = ' aria-current="page"' if nav == key else ""
         values["content"] = render(body, values).strip()
-        html = render(layout, values)
+        html = render(layout, values).replace(root + "assets/img/icons.svg#", "#")
 
         leftover = re.findall(r"\{\{[^}]*\}\}", html)
         if leftover:
