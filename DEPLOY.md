@@ -27,11 +27,7 @@ GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limit
 2. Create a new **public** repository called `icapitalfinance` at https://github.com/new. Leave "Add a README" unticked. (Free GitHub Pages needs a public repository. Nothing in it is private.)
 3. Upload the site. Either:
    - **No tools:** on the new repository page click **uploading an existing file** and drag in everything in this folder except `recovered/`, `tools/`, `EMAIL-FIX.md` and `.claude/`. Click **Commit changes**.
-   - **Terminal:** run these in this folder, replacing `YOUR-GITHUB-USERNAME`:
-
-```bash
-git init -b main && git add . && git commit -m "Rebuild iCapital Finance website as static HTML"
-```
+   - **Terminal:** this folder is already a git repository with everything committed on `main`. Run this in the folder, replacing `YOUR-GITHUB-USERNAME`:
 
 ```bash
 git remote add origin https://github.com/YOUR-GITHUB-USERNAME/icapitalfinance.git && git push -u origin main
