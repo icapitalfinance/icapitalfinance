@@ -34,7 +34,7 @@ git add -A && git commit -m "Describe the change" && git push
 
 GitHub rebuilds the site within about a minute of each push.
 
-Recommended: verify the domain so nobody else can claim it on GitHub. Go to https://github.com/organizations/icapitalfinance/settings/pages → **Add a domain**, enter `icapitalfinance.com.au`, and add the `TXT` record GitHub shows you in step 2 below.
+Domain verified on 29 October 2026: the organisation's Pages settings list `icapitalfinance.com.au` as verified, which stops any other GitHub account from claiming it. Keep the GoDaddy `TXT` record `_github-pages-challenge-icapitalfinance` permanently. Deleting it removes that protection.
 
 ## Step 2. Point the domain at GitHub (GoDaddy DNS)
 
