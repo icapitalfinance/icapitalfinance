@@ -27,10 +27,10 @@ GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limit
 2. Create a new **public** repository called `icapitalfinance` at https://github.com/new. Leave "Add a README" unticked. (Free GitHub Pages needs a public repository. Nothing in it is private.)
 3. Upload the site. Either:
    - **No tools:** on the new repository page click **uploading an existing file** and drag in everything in this folder except `recovered/`, `tools/`, `EMAIL-FIX.md` and `.claude/`. Click **Commit changes**.
-   - **Terminal:** this folder is already a git repository with everything committed on `main`. Run this in the folder, replacing `YOUR-GITHUB-USERNAME`:
+   - **Terminal:** this folder is already a git repository with everything committed on `main`. Run this in the folder, replacing `crestmage`:
 
 ```bash
-git remote add origin https://github.com/YOUR-GITHUB-USERNAME/icapitalfinance.git && git push -u origin main
+git remote add origin https://github.com/crestmage/icapitalfinance.git && git push -u origin main
 ```
 
 4. In the repository go to **Settings → Pages**. Under **Build and deployment** set Source to **Deploy from a branch**, Branch to **main**, folder to **/docs**, and click **Save**.
@@ -56,7 +56,7 @@ In GoDaddy → `icapitalfinance.com.au` → **DNS** → **DNS Records**:
 | AAAA  | `@`   | `2606:50c0:8001::153`              | 1 Hour |
 | AAAA  | `@`   | `2606:50c0:8002::153`              | 1 Hour |
 | AAAA  | `@`   | `2606:50c0:8003::153`              | 1 Hour |
-| CNAME | `www` | `YOUR-GITHUB-USERNAME.github.io`   | 1 Hour |
+| CNAME | `www` | `crestmage.github.io`   | 1 Hour |
 
 The `www` value is your GitHub username followed by `.github.io`, with no repository name and no `https://`. GitHub sends `www.icapitalfinance.com.au` to `icapitalfinance.com.au` automatically.
 
