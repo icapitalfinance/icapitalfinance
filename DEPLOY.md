@@ -21,22 +21,20 @@ GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limit
 - `src/` and `build.py` are the editable source. Change text in `src/pages/*.html` or the header and footer in `src/layout.html`, then run `python3 build.py` to regenerate `docs/`.
 - `recovered/` holds what was salvaged from the Wayback Machine. It is not published.
 
-## Step 1. Put the site on GitHub (10 minutes)
+## Step 1. Put the site on GitHub (done 28 October 2026)
 
-1. Create a free account at https://github.com/signup if you do not have one.
-2. Create a new **public** repository called `icapitalfinance` at https://github.com/new. Leave "Add a README" unticked. (Free GitHub Pages needs a public repository. Nothing in it is private.)
-3. Upload the site. Either:
-   - **No tools:** on the new repository page click **uploading an existing file** and drag in everything in this folder except `recovered/`, `tools/`, `EMAIL-FIX.md` and `.claude/`. Click **Commit changes**.
-   - **Terminal:** this folder is already a git repository with everything committed on `main`. Run this in the folder, replacing `crestmage`:
+- Repository: https://github.com/icapitalfinance/icapitalfinance (public, owned by the `icapitalfinance` GitHub organisation).
+- GitHub Pages: **Settings → Pages** serves branch `main`, folder `/docs`, custom domain `icapitalfinance.com.au`.
+
+To publish a change later, edit `src/`, run `python3 build.py`, then commit and push:
 
 ```bash
-git remote add origin https://github.com/icapitalfinance/icapitalfinance.git && git push -u origin main
+git add -A && git commit -m "Describe the change" && git push
 ```
 
-4. In the repository go to **Settings → Pages**. Under **Build and deployment** set Source to **Deploy from a branch**, Branch to **main**, folder to **/docs**, and click **Save**.
-5. In **Custom domain** type `icapitalfinance.com.au` and click **Save**. GitHub shows a DNS check that will fail until step 2 is done. That is expected.
+GitHub rebuilds the site within about a minute of each push.
 
-Recommended: verify the domain so nobody else can claim it on GitHub. Click your profile picture → **Settings → Pages → Add a domain**, enter `icapitalfinance.com.au`, and add the `TXT` record GitHub shows you in step 2 below.
+Recommended: verify the domain so nobody else can claim it on GitHub. Go to https://github.com/organizations/icapitalfinance/settings/pages → **Add a domain**, enter `icapitalfinance.com.au`, and add the `TXT` record GitHub shows you in step 2 below.
 
 ## Step 2. Point the domain at GitHub (GoDaddy DNS)
 
