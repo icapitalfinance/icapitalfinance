@@ -115,8 +115,10 @@ ul { margin: 0; padding: 0; }
 /* Hero */
 .hero { position: relative; color: #d6def0; background: var(--navy-900) url("../img/hero-suburb-aerial.jpg") center / cover no-repeat; background-image: image-set(url("../img/hero-suburb-aerial.webp") type("image/webp"), url("../img/hero-suburb-aerial.jpg") type("image/jpeg")); overflow: hidden; }
 .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11, 23, 57, .94) 0%, rgba(19, 37, 91, .86) 45%, rgba(19, 37, 91, .55) 100%); }
-.hero .container { position: relative; padding-top: clamp(90px, 13vw, 170px); padding-bottom: clamp(90px, 13vw, 170px); }
-.hero__inner { max-width: 690px; }
+.hero .container { position: relative; padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); }
+.hero__inner { max-width: 820px; }
+.hero h1 { max-width: 700px; }
+.hero .eyebrow { max-width: none; font-size: .85rem; line-height: 1.5; margin-bottom: 1.1em; }
 .hero h1 { color: #fff; margin-bottom: .45em; }
 .hero p { font-size: 1.12rem; max-width: 600px; margin-bottom: 2em; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
