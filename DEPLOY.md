@@ -94,6 +94,5 @@ The free plan allows 50 submissions a month.
 
 - **Credit licence number.** ASIC requires Australian credit assistance providers to show their Australian Credit Licence number or Credit Representative number on their website. The old site did not show one. Add yours in `src/layout.html`, where a comment marks the spot in the footer.
 - **About, Services and Contact text.** The Wayback Machine never saved those pages, so I wrote them using only facts from the homepage. Check the wording, especially the line naming Wendy Lee.
-- **Logo.** The full logo image was not archived. The house mark is traced from Google's cached copy of your favicon, and the "iCapital Finance" wordmark beside it is set in Poppins. If you have the original logo file, send it over and I will swap it in.
 - **Photos.** The original photos were lost. The replacements are free-licence photos from Unsplash (no attribution required).
 - **Hero video.** The old homepage played an ANZ Home Loans TV advert as a background video. It was not reused because it belongs to ANZ.
