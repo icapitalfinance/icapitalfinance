@@ -149,7 +149,7 @@
         .then(function (res) {
           if (!res.ok) throw new Error(String(res.status));
           form.reset();
-          show("Thanks. Your message has been sent and we will get back to you shortly.", true);
+          show("Thanks. Your message has been sent and Wendy will get back to you shortly.", true);
         })
         .catch(function () {
           show("Sorry, your message could not be sent. Please call 1300 833 616 or email info@icapitalfinance.com.au.", false);
