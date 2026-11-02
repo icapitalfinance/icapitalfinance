@@ -21,6 +21,8 @@ GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limit
 - `src/` and `build.py` are the editable source. Change text in `src/pages/*.html` or the header and footer in `src/layout.html`, then run `python3 build.py` to regenerate `docs/`.
 - `recovered/` holds what was salvaged from the Wayback Machine. It is not published.
 
+On 2 November 2026 the site was rebuilt from the original hosting backup (`icapitalfinance.sql` and `icapitalfinance.zip`). Every page now uses the original wording, photos, icons and layout of the 2022 Elementor site, rebuilt by hand as plain HTML, CSS and JavaScript with no WordPress. The original backup is not stored in this repository.
+
 ## Step 1. Put the site on GitHub (done 28 October 2026)
 
 - Repository: https://github.com/icapitalfinance/icapitalfinance (public, owned by the `icapitalfinance` GitHub organisation).
@@ -90,7 +92,6 @@ The free plan allows 50 submissions a month.
 
 ## Before you go live, please review
 
-- **Credit licence number.** ASIC requires Australian credit assistance providers to show their Australian Credit Licence number or Credit Representative number on their website. The old site did not show one. Add yours in `src/layout.html`, where a comment marks the spot in the footer.
-- **About, Services and Contact text.** The Wayback Machine never saved those pages, so I wrote them using only facts from the homepage. Check the wording, especially the line naming Wendy Lee.
-- **Photos.** The original photos were lost. The replacements are free-licence photos from Unsplash (no attribution required).
-- **Hero video.** The old homepage played an ANZ Home Loans TV advert as a background video. It was not reused because it belongs to ANZ.
+- **Credit licence number.** ASIC requires Australian credit assistance providers to show their Australian Credit Licence number or Credit Representative number on their website. The original site did not show one. Add yours in `src/layout.html`, where a comment marks the spot in the footer.
+- **Hero video.** As on the original site, the homepage hero plays a muted YouTube clip (`4WVWdZP5t8Y`, seconds 15 to 39, an ANZ Home Loans advert) behind the text on screens wider than 1024 px. Phones and tablets show the still photo. To drop the video, delete the `hero__video` line in `src/pages/index.html` and rebuild.
+- **Original wording kept as it was.** Typos in the original are reproduced, for example "Qualiified Professional Team" on the homepage, and the Business/Commercial Loans section on the Services page repeats the residential loans paragraph. Fix them in `src/pages/` if you want.
