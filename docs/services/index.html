@@ -26,8 +26,8 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preload" href="../assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=3feb4246">
-<script>document.documentElement.className="js";(function(){var i=new Image;i.onerror=function(){document.documentElement.classList.add("no-webp")};i.src="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA"})();</script>
+<link rel="stylesheet" href="../assets/css/site.css?v=fad9c119">
+<script>document.documentElement.className="js";</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FinancialService","@id":"https://icapitalfinance.com.au/#business","name":"iCapital Finance","description":"Australian Mortgage Broker","url":"https://icapitalfinance.com.au/","logo":"https://icapitalfinance.com.au/assets/img/icon-512.png","image":"https://icapitalfinance.com.au/assets/img/og-image.jpg","telephone":"+61 1300 833 616","email":"info@icapitalfinance.com.au","address":{"@type":"PostalAddress","streetAddress":"21-23 Aristoc Rd","addressLocality":"Glen Waverley","addressRegion":"VIC","postalCode":"3150","addressCountry":"AU"},"areaServed":"AU","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"17:30"}],"sameAs":["https://www.linkedin.com/in/wendyleeicapitalfinance"]}
 </script>
@@ -99,7 +99,7 @@
 
 <section class="service" id="residential" aria-labelledby="residential-title">
   <div class="wrap split">
-    <div class="split__img img-residential" role="img" aria-label="Suburban homes in Melbourne"><span class="dots" aria-hidden="true"></span></div>
+    <div class="split__img img-residential" data-lazy-bg role="img" aria-label="Suburban homes in Melbourne"><span class="dots" aria-hidden="true"></span></div>
     <div class="service__text">
       <div class="service__title"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><h2 id="residential-title" data-anim>Residential Loans</h2></div>
       <p>No matter if you're buying your first house, refinancing or investing, iCapital Finance is here to help. Leave the legwork to us. Save time and money. We'll provide expert advice throughout the whole process, guiding you to a home loan deal that's right for you.</p>
@@ -138,13 +138,13 @@
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Business Loans</li>
       </ul>
     </div>
-    <div class="split__img img-business" role="img" aria-label="Melbourne city towers"></div>
+    <div class="split__img img-business" data-lazy-bg role="img" aria-label="Melbourne city towers"></div>
   </div>
 </section>
 
 <section class="service" id="equipment" aria-labelledby="equipment-title">
   <div class="wrap split">
-    <div class="split__img img-equipment" role="img" aria-label="Car interior and dashboard"><span class="dots" aria-hidden="true"></span></div>
+    <div class="split__img img-equipment" data-lazy-bg role="img" aria-label="Car interior and dashboard"><span class="dots" aria-hidden="true"></span></div>
     <div class="service__text">
       <div class="service__title"><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg><h2 id="equipment-title" data-anim>Equipment Finance</h2></div>
       <p>Businesses and companies that invest in assets often do so in order to expand operations or better manage cash flow. Therefore, whether you are looking to invest in equipment, machinery, a car, truck or even people, we will do everything we can to find the right solution for you.</p>
@@ -172,7 +172,8 @@
     </div>
     <div class="more__media" data-tilt>
       <picture>
-        <source srcset="../assets/img/want-to-know.webp" type="image/webp">
+        <source type="image/avif" srcset="../assets/img/want-to-know-sm.avif 800w, ../assets/img/want-to-know.avif 1000w" sizes="(max-width: 767px) 100vw, 50vw">
+        <source type="image/webp" srcset="../assets/img/want-to-know-sm.webp 800w, ../assets/img/want-to-know.webp 1000w" sizes="(max-width: 767px) 100vw, 50vw">
         <img class="more__img" src="../assets/img/want-to-know.jpg" alt="" width="1000" height="772" loading="lazy">
       </picture>
     </div>
@@ -216,6 +217,6 @@
     <!-- ASIC requires your Australian Credit Licence or Credit Representative number on the website. Add it here and rebuild. -->
   </div>
 </footer>
-<script src="../assets/js/site.js?v=3feb4246" defer></script>
+<script src="../assets/js/site.js?v=fad9c119" defer></script>
 </body>
 </html>

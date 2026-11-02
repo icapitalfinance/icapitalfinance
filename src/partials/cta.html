@@ -14,7 +14,8 @@
     </div>
     <div class="more__media" data-tilt>
       <picture>
-        <source srcset="{{root}}assets/img/want-to-know.webp" type="image/webp">
+        <source type="image/avif" srcset="{{root}}assets/img/want-to-know-sm.avif 800w, {{root}}assets/img/want-to-know.avif 1000w" sizes="(max-width: 767px) 100vw, 50vw">
+        <source type="image/webp" srcset="{{root}}assets/img/want-to-know-sm.webp 800w, {{root}}assets/img/want-to-know.webp 1000w" sizes="(max-width: 767px) 100vw, 50vw">
         <img class="more__img" src="{{root}}assets/img/want-to-know.jpg" alt="" width="1000" height="772" loading="lazy">
       </picture>
     </div>

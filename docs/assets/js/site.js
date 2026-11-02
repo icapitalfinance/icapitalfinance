@@ -34,6 +34,19 @@
     anims.forEach(function (el) { io.observe(el); });
   }
 
+  // Below-the-fold background photos load when they come within 600 px of the screen
+  var lazyBgs = document.querySelectorAll("[data-lazy-bg]");
+  if (!("IntersectionObserver" in window)) {
+    lazyBgs.forEach(function (el) { el.classList.add("bg-in"); });
+  } else {
+    var bgObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("bg-in"); bgObserver.unobserve(entry.target); }
+      });
+    }, { rootMargin: "600px 0px" });
+    lazyBgs.forEach(function (el) { bgObserver.observe(el); });
+  }
+
   // Testimonial slider
   document.querySelectorAll("[data-slider]").forEach(function (slider) {
     var slides = Array.prototype.slice.call(slider.querySelectorAll(".slide"));

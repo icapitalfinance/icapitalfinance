@@ -23,6 +23,8 @@ GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limit
 
 On 2 November 2026 the site was rebuilt from the original hosting backup (`icapitalfinance.sql` and `icapitalfinance.zip`). Every page now uses the original wording, photos, icons and layout of the 2022 Elementor site, rebuilt by hand as plain HTML, CSS and JavaScript with no WordPress. The original backup is not stored in this repository.
 
+Photos are served as AVIF, then WebP, then JPEG, with 800 px versions for phones. Photos further down each page load only as the visitor scrolls near them. `tools/optimize_images.py` regenerates every photo from the backup's `wp-content/uploads` folder: unzip `icapitalfinance.zip` somewhere and pass that folder's path.
+
 ## Step 1. Put the site on GitHub (done 28 October 2026)
 
 - Repository: https://github.com/icapitalfinance/icapitalfinance (public, owned by the `icapitalfinance` GitHub organisation).

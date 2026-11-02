@@ -26,8 +26,8 @@
 <link rel="manifest" href="./site.webmanifest">
 <link rel="preload" href="./assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="./assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="./assets/css/site.css?v=3feb4246">
-<script>document.documentElement.className="js";(function(){var i=new Image;i.onerror=function(){document.documentElement.classList.add("no-webp")};i.src="data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA"})();</script>
+<link rel="stylesheet" href="./assets/css/site.css?v=fad9c119">
+<script>document.documentElement.className="js";</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FinancialService","@id":"https://icapitalfinance.com.au/#business","name":"iCapital Finance","description":"Australian Mortgage Broker","url":"https://icapitalfinance.com.au/","logo":"https://icapitalfinance.com.au/assets/img/icon-512.png","image":"https://icapitalfinance.com.au/assets/img/og-image.jpg","telephone":"+61 1300 833 616","email":"info@icapitalfinance.com.au","address":{"@type":"PostalAddress","streetAddress":"21-23 Aristoc Rd","addressLocality":"Glen Waverley","addressRegion":"VIC","postalCode":"3150","addressCountry":"AU"},"areaServed":"AU","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"17:30"}],"sameAs":["https://www.linkedin.com/in/wendyleeicapitalfinance"]}
 </script>
@@ -116,7 +116,8 @@
       </div>
       <p class="card__text">Buying, refinancing, or building your home? We can help you secure a residential loan that suits your needs.</p>
       <picture>
-        <source srcset="./assets/img/card-residential.webp" type="image/webp">
+        <source type="image/avif" srcset="./assets/img/card-residential-sm.avif 800w, ./assets/img/card-residential.avif 850w" sizes="(max-width: 1024px) 100vw, 422px">
+        <source type="image/webp" srcset="./assets/img/card-residential-sm.webp 800w, ./assets/img/card-residential.webp 850w" sizes="(max-width: 1024px) 100vw, 422px">
         <img class="card__img" src="./assets/img/card-residential.jpg" alt="" width="850" height="448" loading="lazy">
       </picture>
       <div class="card__foot"><a class="link-more" href="./services/#residential">Discover More <svg class="icon" aria-hidden="true"><use href="#i-angle-right"/></svg></a></div>
@@ -128,7 +129,8 @@
       </div>
       <p class="card__text">Discover your business/commercial funding options. Access business loans, commercial property loans, and more.</p>
       <picture>
-        <source srcset="./assets/img/card-business.webp" type="image/webp">
+        <source type="image/avif" srcset="./assets/img/card-business-sm.avif 800w, ./assets/img/card-business.avif 850w" sizes="(max-width: 1024px) 100vw, 422px">
+        <source type="image/webp" srcset="./assets/img/card-business-sm.webp 800w, ./assets/img/card-business.webp 850w" sizes="(max-width: 1024px) 100vw, 422px">
         <img class="card__img" src="./assets/img/card-business.jpg" alt="" width="850" height="425" loading="lazy">
       </picture>
       <div class="card__foot"><a class="link-more" href="./services/#business">Discover More <svg class="icon" aria-hidden="true"><use href="#i-angle-right"/></svg></a></div>
@@ -140,7 +142,8 @@
       </div>
       <p class="card__text">The simplest way to upgrade or replace your vehicles and equipment. Obtain the loans you need to grow your business.</p>
       <picture>
-        <source srcset="./assets/img/card-equipment.webp" type="image/webp">
+        <source type="image/avif" srcset="./assets/img/card-equipment-sm.avif 800w, ./assets/img/card-equipment.avif 850w" sizes="(max-width: 1024px) 100vw, 422px">
+        <source type="image/webp" srcset="./assets/img/card-equipment-sm.webp 800w, ./assets/img/card-equipment.webp 850w" sizes="(max-width: 1024px) 100vw, 422px">
         <img class="card__img" src="./assets/img/card-equipment.jpg" alt="" width="850" height="425" loading="lazy">
       </picture>
       <div class="card__foot"><a class="link-more" href="./services/#equipment">Discover More <svg class="icon" aria-hidden="true"><use href="#i-angle-right"/></svg></a></div>
@@ -165,7 +168,7 @@
   </div>
 </section>
 
-<section class="journey" aria-labelledby="journey-title">
+<section class="journey" data-lazy-bg aria-labelledby="journey-title">
   <div class="wrap">
     <h2 id="journey-title" data-anim>We can help you at every stage of your journey:</h2>
     <div class="steps">
@@ -196,7 +199,7 @@
   </div>
 </section>
 
-<section class="reviews" aria-labelledby="reviews-title">
+<section class="reviews" data-lazy-bg aria-labelledby="reviews-title">
   <div class="wrap">
     <h2 id="reviews-title">What our business partners and clients say</h2>
     <div class="reviews__body">
@@ -247,7 +250,8 @@
     </div>
     <div class="more__media" data-tilt>
       <picture>
-        <source srcset="./assets/img/want-to-know.webp" type="image/webp">
+        <source type="image/avif" srcset="./assets/img/want-to-know-sm.avif 800w, ./assets/img/want-to-know.avif 1000w" sizes="(max-width: 767px) 100vw, 50vw">
+        <source type="image/webp" srcset="./assets/img/want-to-know-sm.webp 800w, ./assets/img/want-to-know.webp 1000w" sizes="(max-width: 767px) 100vw, 50vw">
         <img class="more__img" src="./assets/img/want-to-know.jpg" alt="" width="1000" height="772" loading="lazy">
       </picture>
     </div>
@@ -291,6 +295,6 @@
     <!-- ASIC requires your Australian Credit Licence or Credit Representative number on the website. Add it here and rebuild. -->
   </div>
 </footer>
-<script src="./assets/js/site.js?v=3feb4246" defer></script>
+<script src="./assets/js/site.js?v=fad9c119" defer></script>
 </body>
 </html>

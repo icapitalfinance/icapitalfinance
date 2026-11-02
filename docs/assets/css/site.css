@@ -117,9 +117,8 @@ button, input, select, textarea { font: inherit; }
 /* Hero (home) */
 .hero {
   position: relative; overflow: hidden; color: #fff;
-  background: #0d1924 url("../img/hero-home.webp") center / cover no-repeat;
+  background: #0d1924 center / cover no-repeat;
 }
-.no-webp .hero { background-image: url("../img/hero-home.jpg"); }
 .hero__video { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .hero__video iframe { position: absolute; top: 50%; left: 50%; border: 0; transform: translate(-50%, -50%); opacity: 0; transition: opacity 1s; }
 .hero__video.is-playing iframe { opacity: 1; }
@@ -165,10 +164,9 @@ button, input, select, textarea { font: inherit; }
 /* Journey steps (home) */
 .journey {
   position: relative; color: #fff; text-align: center;
-  background: var(--navy) url("../img/journey.webp") center / cover no-repeat;
+  background: var(--navy) center / cover no-repeat;
   padding: 120px 0 180px;
 }
-.no-webp .journey { background-image: url("../img/journey.jpg"); }
 .journey::before { content: ""; position: absolute; inset: 0; background: rgba(19, 37, 91, .6); }
 .journey .wrap { position: relative; }
 .journey h2 { color: #fff; max-width: 450px; margin: 0 auto 45px; }
@@ -199,10 +197,9 @@ button, input, select, textarea { font: inherit; }
 /* Testimonials (home) */
 .reviews {
   position: relative; color: #fff;
-  background: var(--navy) url("../img/testimonials.webp") center / cover no-repeat;
+  background: var(--navy) center / cover no-repeat;
   padding: 110px 0 90px;
 }
-.no-webp .reviews { background-image: url("../img/testimonials.jpg"); }
 .reviews::before { content: ""; position: absolute; inset: 0; background: rgba(19, 37, 91, .82); }
 .reviews .wrap { position: relative; }
 .reviews h2 { color: #fff; margin-bottom: 20px; }
@@ -250,12 +247,7 @@ button, input, select, textarea { font: inherit; }
 .page-hero::before { content: ""; position: absolute; inset: 0; background: rgba(19, 37, 91, .35); }
 .page-hero .wrap { position: relative; width: 100%; }
 .page-hero h1 { color: #fff; padding: 110px 0 20px; }
-.page-hero--about { background-image: url("../img/journey.webp"); background-position: center 20%; }
-.page-hero--services { background-image: url("../img/services-hero.webp"); }
-.page-hero--contact { background-image: url("../img/contact-hero.webp"); }
-.no-webp .page-hero--about { background-image: url("../img/journey.jpg"); }
-.no-webp .page-hero--services { background-image: url("../img/services-hero.jpg"); }
-.no-webp .page-hero--contact { background-image: url("../img/contact-hero.jpg"); }
+.page-hero--about { background-position: center 20%; }
 
 /* About */
 .intro { padding: 120px 0 70px; }
@@ -264,10 +256,9 @@ button, input, select, textarea { font: inherit; }
 .intro__cols { columns: 2; column-gap: 45px; padding-right: 50px; }
 .banner {
   position: relative; text-align: center;
-  background: var(--navy) url("../img/local-trusted.webp") center / cover no-repeat;
+  background: var(--navy) center / cover no-repeat;
   padding: 123px 0;
 }
-.no-webp .banner { background-image: url("../img/local-trusted.jpg"); }
 .banner::before { content: ""; position: absolute; inset: 0; background: rgba(19, 37, 91, .82); }
 .banner h2 { position: relative; color: #fff; }
 .story { padding: 105px 0 50px; }
@@ -276,8 +267,7 @@ button, input, select, textarea { font: inherit; }
 .split__text h2 { margin-bottom: 20px; padding-top: 7px; }
 .split__text { padding-right: 15px; }
 .split__img { position: relative; min-height: 533px; background: center top / cover no-repeat; }
-.story .split__img { margin: 0 -15px 0 -15px; background-image: url("../img/our-story.webp"); }
-.no-webp .story .split__img { background-image: url("../img/our-story.jpg"); }
+.story .split__img { margin: 0 -15px 0 -15px; }
 .dots { position: absolute; width: 114px; height: 63px; background: url("../img/dots.png") no-repeat; pointer-events: none; }
 .story .dots { left: -75px; bottom: -30px; }
 .quote-box { padding: 0 0 0; }
@@ -286,8 +276,7 @@ button, input, select, textarea { font: inherit; }
 .quote-box .icon { width: 46px; height: 46px; color: var(--line); margin-bottom: 15px; }
 .quote-box cite { display: block; margin-top: 30px; font-style: normal; font-weight: 600; color: var(--blue); }
 .success { padding: 50px 0 110px; }
-.success .split__img { margin: 0 60px 0 -15px; min-height: 655px; background-image: url("../img/success-stories.webp"); }
-.no-webp .success .split__img { background-image: url("../img/success-stories.jpg"); }
+.success .split__img { margin: 0 60px 0 -15px; min-height: 655px; }
 .success .dots { right: -28px; bottom: -40px; }
 .success .split__text h3 { margin: 40px 0 20px; }
 .success .split__text { padding: 0 70px 0 15px; }
@@ -327,12 +316,6 @@ button, input, select, textarea { font: inherit; }
 .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; padding-left: 10px; }
 .checks li { display: flex; align-items: center; gap: 10px; color: var(--text); }
 .checks .icon { width: 14px; height: 14px; color: var(--blue); }
-.img-residential { background-image: url("../img/residential.webp"); }
-.img-business { background-image: url("../img/business.webp"); }
-.img-equipment { background-image: url("../img/equipment.webp"); }
-.no-webp .img-residential { background-image: url("../img/residential.jpg"); }
-.no-webp .img-business { background-image: url("../img/business.jpg"); }
-.no-webp .img-equipment { background-image: url("../img/equipment.jpg"); }
 
 /* Contact */
 .contact { padding: 130px 0 90px; }
@@ -390,6 +373,34 @@ button, input, select, textarea { font: inherit; }
 .notfound { padding: 120px 15px; text-align: center; }
 .notfound h1 { color: var(--ink); margin-bottom: 20px; }
 .notfound .hero__actions { justify-content: center; margin-top: 30px; }
+
+/* Photos: AVIF, then WebP, then JPEG. Phones get the 800 px versions. */
+.hero { background-image: url("../img/hero-home.jpg"); background-image: image-set(url("../img/hero-home.avif") type("image/avif"), url("../img/hero-home.webp") type("image/webp"), url("../img/hero-home.jpg") type("image/jpeg")); }
+.journey { background-image: url("../img/journey.jpg"); background-image: image-set(url("../img/journey.avif") type("image/avif"), url("../img/journey.webp") type("image/webp"), url("../img/journey.jpg") type("image/jpeg")); }
+.reviews { background-image: url("../img/testimonials.jpg"); background-image: image-set(url("../img/testimonials.avif") type("image/avif"), url("../img/testimonials.webp") type("image/webp"), url("../img/testimonials.jpg") type("image/jpeg")); }
+.page-hero--about { background-image: url("../img/journey.jpg"); background-image: image-set(url("../img/journey.avif") type("image/avif"), url("../img/journey.webp") type("image/webp"), url("../img/journey.jpg") type("image/jpeg")); }
+.page-hero--services { background-image: url("../img/services-hero.jpg"); background-image: image-set(url("../img/services-hero.avif") type("image/avif"), url("../img/services-hero.webp") type("image/webp"), url("../img/services-hero.jpg") type("image/jpeg")); }
+.page-hero--contact { background-image: url("../img/contact-hero.jpg"); background-image: image-set(url("../img/contact-hero.avif") type("image/avif"), url("../img/contact-hero.webp") type("image/webp"), url("../img/contact-hero.jpg") type("image/jpeg")); }
+.banner { background-image: url("../img/local-trusted.jpg"); background-image: image-set(url("../img/local-trusted.avif") type("image/avif"), url("../img/local-trusted.webp") type("image/webp"), url("../img/local-trusted.jpg") type("image/jpeg")); }
+.story .split__img { background-image: url("../img/our-story.jpg"); background-image: image-set(url("../img/our-story.avif") type("image/avif"), url("../img/our-story.webp") type("image/webp"), url("../img/our-story.jpg") type("image/jpeg")); }
+.success .split__img { background-image: url("../img/success-stories.jpg"); background-image: image-set(url("../img/success-stories.avif") type("image/avif"), url("../img/success-stories.webp") type("image/webp"), url("../img/success-stories.jpg") type("image/jpeg")); }
+.img-residential { background-image: url("../img/residential.jpg"); background-image: image-set(url("../img/residential.avif") type("image/avif"), url("../img/residential.webp") type("image/webp"), url("../img/residential.jpg") type("image/jpeg")); }
+.img-business { background-image: url("../img/business.jpg"); background-image: image-set(url("../img/business.avif") type("image/avif"), url("../img/business.webp") type("image/webp"), url("../img/business.jpg") type("image/jpeg")); }
+.img-equipment { background-image: url("../img/equipment.jpg"); background-image: image-set(url("../img/equipment.avif") type("image/avif"), url("../img/equipment.webp") type("image/webp"), url("../img/equipment.jpg") type("image/jpeg")); }
+@media (max-width: 800px) {
+  .journey { background-image: url("../img/journey-sm.jpg"); background-image: image-set(url("../img/journey-sm.avif") type("image/avif"), url("../img/journey-sm.webp") type("image/webp"), url("../img/journey-sm.jpg") type("image/jpeg")); }
+  .reviews { background-image: url("../img/testimonials-sm.jpg"); background-image: image-set(url("../img/testimonials-sm.avif") type("image/avif"), url("../img/testimonials-sm.webp") type("image/webp"), url("../img/testimonials-sm.jpg") type("image/jpeg")); }
+  .page-hero--about { background-image: url("../img/journey-sm.jpg"); background-image: image-set(url("../img/journey-sm.avif") type("image/avif"), url("../img/journey-sm.webp") type("image/webp"), url("../img/journey-sm.jpg") type("image/jpeg")); }
+  .page-hero--services { background-image: url("../img/services-hero-sm.jpg"); background-image: image-set(url("../img/services-hero-sm.avif") type("image/avif"), url("../img/services-hero-sm.webp") type("image/webp"), url("../img/services-hero-sm.jpg") type("image/jpeg")); }
+  .page-hero--contact { background-image: url("../img/contact-hero-sm.jpg"); background-image: image-set(url("../img/contact-hero-sm.avif") type("image/avif"), url("../img/contact-hero-sm.webp") type("image/webp"), url("../img/contact-hero-sm.jpg") type("image/jpeg")); }
+  .banner { background-image: url("../img/local-trusted-sm.jpg"); background-image: image-set(url("../img/local-trusted-sm.avif") type("image/avif"), url("../img/local-trusted-sm.webp") type("image/webp"), url("../img/local-trusted-sm.jpg") type("image/jpeg")); }
+  .story .split__img { background-image: url("../img/our-story-sm.jpg"); background-image: image-set(url("../img/our-story-sm.avif") type("image/avif"), url("../img/our-story-sm.webp") type("image/webp"), url("../img/our-story-sm.jpg") type("image/jpeg")); }
+  .success .split__img { background-image: url("../img/success-stories-sm.jpg"); background-image: image-set(url("../img/success-stories-sm.avif") type("image/avif"), url("../img/success-stories-sm.webp") type("image/webp"), url("../img/success-stories-sm.jpg") type("image/jpeg")); }
+  .img-residential { background-image: url("../img/residential-sm.jpg"); background-image: image-set(url("../img/residential-sm.avif") type("image/avif"), url("../img/residential-sm.webp") type("image/webp"), url("../img/residential-sm.jpg") type("image/jpeg")); }
+  .img-equipment { background-image: url("../img/equipment-sm.jpg"); background-image: image-set(url("../img/equipment-sm.avif") type("image/avif"), url("../img/equipment-sm.webp") type("image/webp"), url("../img/equipment-sm.jpg") type("image/jpeg")); }
+}
+/* Below-the-fold photos load when they come near the screen (see site.js). */
+.js [data-lazy-bg]:not(.bg-in) { background-image: none !important; }
 
 /* Tablet */
 @media (max-width: 1024px) {
