@@ -267,7 +267,7 @@ button, input, select, textarea { font: inherit; }
 .split__text h2 { margin-bottom: 20px; padding-top: 7px; }
 .split__text { padding-right: 15px; }
 .split__img { position: relative; min-height: 533px; background: center top / cover no-repeat; }
-.story .split__img { margin: 0 -15px 0 -15px; }
+.story .split__img { margin: 0 -15px 0 50px; }
 .dots { position: absolute; width: 114px; height: 63px; background: url("../img/dots.png") no-repeat; pointer-events: none; }
 .story .dots { left: -75px; bottom: -30px; }
 .quote-box { padding: 0 0 0; }
