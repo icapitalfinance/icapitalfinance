@@ -19,7 +19,7 @@ SITE = "https://icapitalfinance.com.au"
 DOMAIN = "icapitalfinance.com.au"
 
 # Cloudflare Web Analytics site token. Leave empty to publish without analytics.
-ANALYTICS_TOKEN = ""
+ANALYTICS_TOKEN = "c288c9a073b94376b4e7aaa011578193"
 ANALYTICS_TAG = """<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "{token}"}}'></script>\n"""
 
 # Old WordPress URLs that are not real pages any more. Each gets a small
