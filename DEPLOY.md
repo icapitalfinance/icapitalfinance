@@ -92,6 +92,17 @@ The free plan allows 50 submissions a month.
 - Email still works (send a test from Gmail to `info@icapitalfinance.com.au`).
 - Optional: add the site at https://search.google.com/search-console and submit `https://icapitalfinance.com.au/sitemap.xml`.
 
+## Step 6. Count visitors (Cloudflare Web Analytics)
+
+GitHub Pages shows no bandwidth or visitor figures, so use Cloudflare's free analytics. It needs no cookies, and DNS stays at GoDaddy.
+
+1. Create a free account at https://dash.cloudflare.com/sign-up.
+2. Open **Web Analytics** (under **Analytics & Logs**), choose **Add a site**, enter `icapitalfinance.com.au`, and pick the manual JavaScript snippet option.
+3. Copy the token from the snippet. It is the value after `"token":`.
+4. Paste it into `ANALYTICS_TOKEN` at the top of `build.py`, run `python3 build.py`, then commit and push.
+
+Multiply monthly pageviews by 0.33 MB for the most bandwidth the site could have used, against the 100 GB soft limit.
+
 ## Before you go live, please review
 
 - **Credit licence number.** ASIC requires Australian credit assistance providers to show their Australian Credit Licence number or Credit Representative number on their website. The original site did not show one. Add yours in `src/layout.html`, where a comment marks the spot in the footer.

@@ -18,6 +18,10 @@ OUT = ROOT / "docs"
 SITE = "https://icapitalfinance.com.au"
 DOMAIN = "icapitalfinance.com.au"
 
+# Cloudflare Web Analytics site token. Leave empty to publish without analytics.
+ANALYTICS_TOKEN = ""
+ANALYTICS_TAG = """<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "{token}"}}'></script>\n"""
+
 # Old WordPress URLs that are not real pages any more. Each gets a small
 # redirect page so existing links and bookmarks keep working.
 REDIRECTS = {
@@ -96,6 +100,7 @@ def build():
             "version": version,
             "robots": '<meta name="robots" content="noindex">\n' if meta.get("noindex") else "",
             "head_extra": "",
+            "analytics": ANALYTICS_TAG.format(token=ANALYTICS_TOKEN) if ANALYTICS_TOKEN else "",
         }
         for key in ("home", "about", "services", "contact"):
             values["cur_" + key] = ' aria-current="page"' if nav == key else ""
