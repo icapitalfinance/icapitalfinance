@@ -51,7 +51,7 @@
   document.querySelectorAll("[data-slider]").forEach(function (slider) {
     var slides = Array.prototype.slice.call(slider.querySelectorAll(".slide"));
     var dotsWrap = slider.querySelector(".slider__dots");
-    var current = 0, timer = null;
+    var current = 0, timer = null, paused = false;
     var dots = slides.map(function (s, i) {
       var dot = document.createElement("button");
       dot.type = "button";
@@ -67,8 +67,26 @@
       dots.forEach(function (d, n) { d.setAttribute("aria-current", n === current ? "true" : "false"); });
     }
     function stop() { clearInterval(timer); timer = null; }
-    function start() { if (!reduceMotion && !timer) timer = setInterval(function () { go(current + 1); }, 5000); }
+    function start() { if (!reduceMotion && !paused && !timer) timer = setInterval(function () { go(current + 1); }, 5000); }
     function restart() { stop(); start(); }
+    if (!reduceMotion) {
+      var pause = document.createElement("button");
+      pause.type = "button";
+      pause.className = "slider__pause";
+      var showPause = function () {
+        pause.innerHTML = paused
+          ? '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg>Play'
+          : '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0h3.5v12H0zM6.5 0H10v12H6.5z"/></svg>Pause';
+        pause.setAttribute("aria-label", (paused ? "Play" : "Pause") + " testimonials");
+      };
+      pause.addEventListener("click", function () {
+        paused = !paused;
+        showPause();
+        restart();
+      });
+      showPause();
+      dotsWrap.appendChild(pause);
+    }
     slider.addEventListener("mouseenter", stop);
     slider.addEventListener("mouseleave", start);
     slider.addEventListener("focusin", stop);
