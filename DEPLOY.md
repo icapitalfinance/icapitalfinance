@@ -107,4 +107,4 @@ Multiply monthly pageviews by 0.33 MB for the most bandwidth the site could have
 
 - **Credit licence number.** ASIC requires Australian credit assistance providers to show their Australian Credit Licence number or Credit Representative number on their website. The original site did not show one. Add yours in `src/layout.html`, where a comment marks the spot in the footer.
 - **Hero video.** As on the original site, the homepage hero plays a muted YouTube clip (`4WVWdZP5t8Y`, seconds 15 to 39, an ANZ Home Loans advert) behind the text on screens wider than 1024 px. Phones and tablets show the still photo. To drop the video, delete the `hero__video` line in `src/pages/index.html` and rebuild.
-- **Original wording kept as it was.** Typos in the original are reproduced, for example "Qualiified Professional Team" on the homepage, and the Business/Commercial Loans section on the Services page repeats the residential loans paragraph. Fix them in `src/pages/` if you want.
+- **Wording corrected.** The site uses the original wording, with its typos and the repeated Business/Commercial Loans paragraph fixed. Edit the copy in `src/pages/`.
