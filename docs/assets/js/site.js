@@ -133,9 +133,11 @@
     });
   }
 
-  // Hero background video (YouTube, seconds 15 to 39 on loop), desktop only, loaded after the page
+  // Hero background video (YouTube, seconds 15 to 39 on loop), desktop only, loaded after the page.
+  // Below 1025 px the CSS hides it and the banner shows the static photo.
   var video = document.querySelector("[data-video]");
-  if (video && !reduceMotion && window.matchMedia("(min-width: 1025px)").matches) {
+  var videoWidth = window.matchMedia("(min-width: 1025px)");
+  if (video && !reduceMotion && videoWidth.matches) {
     window.addEventListener("load", function () {
       var id = video.getAttribute("data-video");
       var startAt = +video.getAttribute("data-start"), endAt = +video.getAttribute("data-end");
@@ -144,9 +146,12 @@
       function size() {
         var iframe = video.querySelector("iframe");
         if (!iframe) return;
+        // The picture fills only the middle 72% of the frame. Black bars and captions are burned
+        // into the rest, so the iframe is always tall enough to crop them out of the banner.
         var w = video.offsetWidth, h = video.offsetHeight;
-        if (w / h > 16 / 9) { iframe.width = w; iframe.height = Math.ceil(w * 9 / 16); }
-        else { iframe.height = h; iframe.width = Math.ceil(h * 16 / 9); }
+        var height = Math.ceil(Math.max(w * 9 / 16, h / 0.72));
+        iframe.height = height;
+        iframe.width = Math.ceil(height * 16 / 9);
       }
       window.onYouTubeIframeAPIReady = function () {
         var player = new YT.Player(holder, {
@@ -164,6 +169,9 @@
         player.getIframe().setAttribute("tabindex", "-1");
         size();
         window.addEventListener("resize", size);
+        videoWidth.addEventListener("change", function (m) {
+          if (m.matches) { player.playVideo(); size(); } else { player.pauseVideo(); }
+        });
       };
       var s = document.createElement("script");
       s.src = "https://www.youtube.com/iframe_api";
