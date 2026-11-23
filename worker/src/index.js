@@ -49,6 +49,7 @@ export default {
     const fields = [];
     if (!data.name) fields.push("name");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) fields.push("email");
+    if (data.phone.replace(/\D/g, "").length < 8) fields.push("phone"); // AU numbers have 8 to 10 digits, +61 adds 2
     if (!SERVICES.includes(data.service)) fields.push("service");
     for (const [k, max] of Object.entries(LIMITS)) if (data[k].length > max) fields.push(k);
     if (fields.length) return reply(422, { ok: false, error: "fields", fields });
@@ -65,20 +66,26 @@ export default {
       if (!check.success) return reply(403, { ok: false, error: "captcha" });
     }
 
-    // One line per field, no HTML and no links: plain mail is least likely to be filtered.
+    // Same layout as the old Elementor form email: one line per field, then a footer
+    // with the date, time and page. Plain text with no HTML is least likely to be filtered.
     const oneLine = (s) => s.replace(/[\r\n]+/g, " ");
+    const now = new Date();
+    const inMelbourne = (opts) => new Intl.DateTimeFormat("en-AU", { timeZone: "Australia/Melbourne", ...opts }).format(now);
+    const page = (request.headers.get("Referer") || "").split("?")[0] || origin + "/contact-us/";
     const text = [
-      "New enquiry from the website contact form.",
-      "",
       "Name: " + oneLine(data.name),
       "Email: " + data.email,
-      "Phone: " + (oneLine(data.phone) || "-"),
+      "Phone: " + oneLine(data.phone),
       "Service Of Interest: " + data.service,
+      "Message: " + (data.message || "-"),
       "",
-      "Message:",
-      data.message || "-",
+      "---",
       "",
-      "Reply to this email to answer " + oneLine(data.name) + " directly.",
+      "Date: " + inMelbourne({ weekday: "long", day: "numeric", month: "long", year: "numeric" }),
+      "Time: " + inMelbourne({ hour: "numeric", minute: "2-digit", hour12: true }) + " (Melbourne time)",
+      "Page URL: " + page,
+      "",
+      "Press Reply to answer " + oneLine(data.name) + " directly.",
     ].join("\n");
 
     const email = {
