@@ -9,11 +9,11 @@ Fix email first. Follow `EMAIL-FIX.md` steps 1 and 2 before anything here. Step 
 | Cost for this site | Free | Free | Free |
 | Custom domain + free HTTPS | Yes | Yes | Yes |
 | Keep DNS at GoDaddy | Yes, plain A/AAAA/CNAME records | Apex domain requires moving nameservers to Cloudflare | Yes, A + CNAME records |
-| Built-in contact forms | No (use Formspree) | No (use Formspree) | Yes, Netlify Forms, 100 submissions/month |
+| Built-in contact forms | No (use a Worker, see `FORM-SETUP.md`) | No (use a Worker) | Yes, Netlify Forms, 100 submissions/month |
 | Bandwidth limit | 100 GB/month soft limit | Unlimited | 100 GB/month, then the site pauses on the free plan |
 | Accounts needed | GitHub | Cloudflare (+ GitHub) | Netlify (+ GitHub) |
 
-GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limits will never matter. DNS stays at GoDaddy next to your Microsoft 365 email records with no nameserver move, and you get version history of every change for free. Cloudflare would need your whole DNS zone moved to Cloudflare, which is one more account and one more place your email records could break. Netlify's only advantage here is built-in forms, and Formspree covers that on any host.
+GitHub Pages is the pick. The site is 4 pages of static HTML, so bandwidth limits will never matter. DNS stays at GoDaddy next to your Microsoft 365 email records with no nameserver move, and you get version history of every change for free. Cloudflare would need your whole DNS zone moved to Cloudflare, which is one more account and one more place your email records could break. Netlify's only advantage here is built-in forms, and a free Cloudflare Worker covers that on any host.
 
 ## What is in this folder
 
@@ -70,17 +70,9 @@ Do not add a `CNAME` for `@`. GoDaddy does not allow it and it would break email
 2. Back in the repository go to **Settings → Pages**. The custom domain check should now show a green tick.
 3. Tick **Enforce HTTPS**. If the box is greyed out, GitHub is still issuing the certificate. Wait up to 24 hours and try again.
 
-## Step 4. Switch on the contact form (Formspree)
+## Step 4. Switch on the contact form
 
-The contact form is set up for Formspree, which works on static hosting. Until you finish this step, the form opens the visitor's own email app with their message filled in, so no enquiries are lost.
-
-1. Sign up free at https://formspree.io/register using `info@icapitalfinance.com.au`. Fix email first so the confirmation arrives.
-2. Click **New Form**, name it "Website enquiries", and send submissions to `info@icapitalfinance.com.au`.
-3. Copy the form ID. It is the part after `/f/` in the endpoint, for example `xpzgkqwe`.
-4. Open `src/pages/contact-us.html`, replace `YOUR_FORM_ID` with that ID, run `python3 build.py`, and upload or push the updated `docs/contact-us/index.html`.
-5. Under the form's **Settings** in Formspree, add `icapitalfinance.com.au` to **Restrict to domain** to block spam sent from elsewhere.
-
-The free plan allows 50 submissions a month.
+The form posts to a Cloudflare Worker in `worker/`, which emails each enquiry to `info@icapitalfinance.com.au` through Resend. Follow `FORM-SETUP.md`. Until that is done, the form opens the visitor's own email app with their message filled in, so no enquiries are lost.
 
 ## Step 5. Check it worked
 

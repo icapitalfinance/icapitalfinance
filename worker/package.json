@@ -1,0 +1,9 @@
+{
+  "name": "icapital-contact",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "npx wrangler@4 deploy",
+    "logs": "npx wrangler@4 tail"
+  }
+}

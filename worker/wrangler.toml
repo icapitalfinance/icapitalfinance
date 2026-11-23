@@ -1,0 +1,13 @@
+name = "icapital-contact"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+TO_EMAIL = "info@icapitalfinance.com.au"
+FROM_EMAIL = "website@icapitalfinance.com.au"
+ALLOWED_ORIGINS = "https://icapitalfinance.com.au,https://www.icapitalfinance.com.au"
+# Uncomment to get a copy of every enquiry yourself:
+# BCC_EMAIL = "you@example.com"
+
+[observability]
+enabled = true

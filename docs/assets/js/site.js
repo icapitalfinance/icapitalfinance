@@ -179,17 +179,36 @@
     });
   }
 
-  // Contact form. Sends to Formspree when an endpoint is set, otherwise opens an email.
+  // Contact form. Posts to the Cloudflare Worker in worker/ once its URL is in the form's
+  // action, otherwise opens the visitor's email app. See FORM-SETUP.md.
   var form = document.querySelector("[data-contact-form]");
   if (form) {
     var status = form.querySelector(".form-status");
     var submit = form.querySelector("[type=submit]");
+    var endpoint = form.getAttribute("action") || "";
+    var live = /^https:\/\//.test(endpoint) && !/YOUR-/.test(endpoint);
+    var stamp = form.querySelector("[name=_t]");
+    if (stamp) stamp.value = String(Date.now());
+    var siteKey = form.getAttribute("data-turnstile") || "";
+    var captcha = form.querySelector(".cf-turnstile");
+    if (live && captcha && siteKey && !/YOUR_/.test(siteKey)) {
+      captcha.setAttribute("data-sitekey", siteKey);
+      captcha.setAttribute("data-size", "flexible");
+      captcha.setAttribute("data-appearance", "interaction-only");
+      captcha.hidden = false;
+      var ts = document.createElement("script");
+      ts.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      ts.async = true;
+      ts.defer = true;
+      document.head.appendChild(ts);
+    }
     var show = function (msg, ok) {
       status.hidden = false;
       status.textContent = msg;
       status.className = "form-status " + (ok ? "form-status--ok" : "form-status--err");
       status.focus();
     };
+    var failMsg = "Sorry, your message could not be sent. Please call 1300 833 616 or email info@icapitalfinance.com.au.";
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var invalid = Array.prototype.filter.call(form.elements, function (f) {
@@ -204,8 +223,7 @@
       }
       var data = new FormData(form);
       if (data.get("_gotcha")) return;
-      var endpoint = form.getAttribute("action") || "";
-      if (endpoint.indexOf("formspree.io/f/") === -1 || /YOUR_FORM_ID/.test(endpoint)) {
+      if (!live) {
         var body = "Name: " + data.get("name") + "\nEmail: " + data.get("email") + "\nPhone: " + (data.get("phone") || "") +
           "\nService Of Interest: " + data.get("service") + "\n\n" + data.get("message");
         window.location.href = "mailto:info@icapitalfinance.com.au?subject=" +
@@ -217,14 +235,32 @@
       submit.textContent = "Sending...";
       fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
         .then(function (res) {
-          if (!res.ok) throw new Error(String(res.status));
-          form.reset();
-          show("Your submission was successful.", true);
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            if (res.ok && body.ok) {
+              form.reset();
+              if (stamp) stamp.value = String(Date.now());
+              show("Your submission was successful.", true);
+            } else if (body.error === "fields" && body.fields) {
+              var first = null;
+              body.fields.forEach(function (name) {
+                var f = form.elements[name];
+                if (f) { f.setAttribute("aria-invalid", "true"); first = first || f; }
+              });
+              show("Please check the highlighted fields.", false);
+              if (first) first.focus();
+            } else if (body.error === "captcha") {
+              show("Please complete the security check above, then press Send again.", false);
+            } else {
+              show(failMsg, false);
+            }
+          });
         })
-        .catch(function () {
-          show("Sorry, your message could not be sent. Please call 1300 833 616 or email info@icapitalfinance.com.au.", false);
-        })
-        .then(function () { submit.disabled = false; submit.textContent = "Send"; });
+        .catch(function () { show(failMsg, false); })
+        .then(function () {
+          submit.disabled = false;
+          submit.textContent = "Send";
+          if (window.turnstile && captcha && !captcha.hidden) window.turnstile.reset(captcha);
+        });
     });
   }
 

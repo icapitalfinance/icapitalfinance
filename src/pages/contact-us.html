@@ -14,8 +14,8 @@
     <div class="form-box">
       <h2 id="form-title" data-anim>Please fill out the form below to receive a callback within 24 hours.</h2>
       <p>Our goal is to make your financing experience as easy as possible. We are happy to assess and discuss your options. Leave us a message below.</p>
-      <!-- Formspree endpoint: replace YOUR_FORM_ID with the ID from formspree.io (see DEPLOY.md). Until then the form opens the visitor's email app instead. -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" name="New Form" data-contact-form novalidate>
+      <!-- action = the Cloudflare Worker in worker/, data-turnstile = the public Turnstile site key. See FORM-SETUP.md. -->
+      <form action="https://icapital-contact.bryanchew1997.workers.dev" method="POST" name="New Form" data-contact-form data-turnstile="0x4AAAAAAGOw135uEpNlx_Uj" novalidate>
         <div class="form-grid">
           <div class="field">
             <label for="f-name">Name<span class="req" aria-hidden="true">*</span></label>
@@ -42,6 +42,8 @@
             <textarea id="f-message" name="message" rows="4" placeholder="Message"></textarea>
           </div>
           <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="_t" value="">
+          <div class="field--full cf-turnstile" hidden></div>
           <div class="field--full"><button class="btn" type="submit">Send</button></div>
         </div>
         <div class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
