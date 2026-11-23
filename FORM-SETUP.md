@@ -10,9 +10,17 @@ All accounts below belong to the developer. The site owner does not need to do a
 
 | Piece | Where |
 |---|---|
-| Worker | `https://icapital-contact.bryanchew1997.workers.dev`, Cloudflare account `bryanchew1997@gmail.com` |
+| Worker | `https://icapital-contact.bryanchew1997.workers.dev`, on the developer's Cloudflare account |
 | Turnstile widget | "iCapital contact form", same Cloudflare account, site key `0x4AAAAAAGOw135uEpNlx_Uj` (public) |
-| Resend | account `brychews`, domain `icapitalfinance.com.au` verified (Tokyo), API key `icapital-contact` (sending only, this domain only) |
+| Resend | developer's Resend account, domain `icapitalfinance.com.au` verified (Tokyo), API key `icapital-contact` (sending only, this domain only) |
+
+Tested end to end on 23 November 2026: a submission from the live contact page passed Turnstile and Resend reported it Delivered.
+
+To test without emailing the business, deploy with a temporary recipient, test, then deploy again normally:
+
+```bash
+npx wrangler@4 deploy --var TO_EMAIL:you@example.com
+```
 | Secrets in the Worker | `RESEND_API_KEY`, `TURNSTILE_SECRET` (set with `wrangler secret put`, never stored in this repo) |
 
 Until step 5 is done, the form opens the visitor's own email app with the message filled in, so no enquiry is lost in the meantime.
